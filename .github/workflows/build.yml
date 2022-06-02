@@ -13,7 +13,7 @@ jobs:
           fetch-depth: 0
       - uses: sonarsource/sonarqube-scan-action@master
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_TOKEN: 332c28096f64df98750a5c7f3d23e9bdba5ce9c6
           SONAR_HOST_URL: http://127.0.0.1:9000
           
       # If you wish to fail your job when the Quality Gate is red, uncomment the
