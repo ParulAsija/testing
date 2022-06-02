@@ -1,18 +1,19 @@
-name: Build
 on:
   push:
     branches:
       - main # or the name of your main branch
+name: Main Workflow
 jobs:
-  build:
-    name: Build
+  sonarqube:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: sonarsource/sonarqube-scan-action@master
-        env:
+    - uses: actions/checkout@v2
+      with:
+        # Disabling shallow clone is recommended for improving relevancy of reporting
+        fetch-depth: 0
+    - name: SonarQube Scan
+      uses: sonarsource/sonarqube-scan-action@master
+      env:
           SONAR_TOKEN: 332c28096f64df98750a5c7f3d23e9bdba5ce9c6
           SONAR_HOST_URL: http://127.0.0.1:9000
           
