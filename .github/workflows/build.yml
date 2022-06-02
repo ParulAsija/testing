@@ -2,18 +2,30 @@ on:
   push:
     branches:
       - main # or the name of your main branch
-name: Main Workflow
+name: PR Verification
+  on:
+    pull_request:
 jobs:
+  ...A BUNCH OF OTHER JOBS HERE THAT AREN'T RELEVANT
   sonarqube:
+    name: SonarQube Scan
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        # Disabling shallow clone is recommended for improving relevancy of reporting
-        fetch-depth: 0
-    - name: Official SonarQube Scan
-      uses: SonarSource/sonarqube-scan-action@v1.1.0
-      env:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install dependencies
+        run: yarn install
+      - name: Gather Test Coverage
+        run: yarn test-coverage
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
           SONAR_TOKEN: 332c28096f64df98750a5c7f3d23e9bdba5ce9c6
           SONAR_HOST_URL: http://127.0.0.1:9000
           
