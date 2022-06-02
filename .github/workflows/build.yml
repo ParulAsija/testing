@@ -2,7 +2,7 @@ name: Build
 on:
   push:
     branches:
-      - main # or the name of your main branch
+      - master # or the name of your main branch
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
@@ -13,11 +13,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-    services:
-      sonarqube:
-        image: sonarqube:8.9-community
-        ports:
-          - 9000:9000
+      - uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
