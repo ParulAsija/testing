@@ -4,9 +4,8 @@ on:
       - main # or the name of your main branch
 name: PR Verification
   on:
-    pull_request:
+    push_request:
 jobs:
-  ...A BUNCH OF OTHER JOBS HERE THAT AREN'T RELEVANT
   sonarqube:
     name: SonarQube Scan
     runs-on: ubuntu-latest
