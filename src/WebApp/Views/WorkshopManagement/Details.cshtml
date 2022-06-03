@@ -9,7 +9,7 @@
     <tbody>
         <tr>
             <td width="150">Date :</td>
-            <td><b>@Model.Date.ToString("dd-MM-yyyy")</b></td>
+            <td><strong>@Model.Date.ToString("dd-MM-yyyy")</strong></td>
         </tr>
         <tr>
             <td width="150">Status :</td>
@@ -17,37 +17,37 @@
         </tr>
         <tr>
             <td width="150">Start time :</td>
-            <td><b>@Model.MaintenanceJob.StartTime.ToString("HH:mm")</b></td>
+            <td><strong>@Model.MaintenanceJob.StartTime.ToString("HH:mm")</strong></td>
         </tr>
         <tr>
             <td width="150">End time :</td>
-            <td><b>@Model.MaintenanceJob.EndTime.ToString("HH:mm")</b></td>
+            <td><strong>@Model.MaintenanceJob.EndTime.ToString("HH:mm")</strong></td>
         </tr>
         <tr>
             <td width="150">Description :</td>
-            <td><b>@Model.MaintenanceJob.Description</b></td>
+            <td><strong>@Model.MaintenanceJob.Description</strong></td>
         </tr>
         <tr>
             <td width="150">Vehicle :</td>
-            <td><b><a href='@(Url.Action("Details", "VehicleManagement", new { licenseNumber = Model.MaintenanceJob.Vehicle.LicenseNumber }))'>@Model.MaintenanceJob.Vehicle.Brand @Model.MaintenanceJob.Vehicle.Type [@Model.MaintenanceJob.Vehicle.LicenseNumber]</a></b></td>
+            <td><strong><a href='@(Url.Action("Details", "VehicleManagement", new { licenseNumber = Model.MaintenanceJob.Vehicle.LicenseNumber }))'>@Model.MaintenanceJob.Vehicle.Brand @Model.MaintenanceJob.Vehicle.Type [@Model.MaintenanceJob.Vehicle.LicenseNumber]</a></strong></td>
         </tr>
         <tr>
             <td width="150">Owner :</td>
-            <td><b><a href='@(Url.Action("Details", "CustomerManagement", new { id = Model.MaintenanceJob.Customer.CustomerId }))'>@Model.MaintenanceJob.Customer.Name [@Model.MaintenanceJob.Customer.TelephoneNumber]</a></b></td>
+            <td><strong><a href='@(Url.Action("Details", "CustomerManagement", new { id = Model.MaintenanceJob.Customer.CustomerId }))'>@Model.MaintenanceJob.Customer.Name [@Model.MaintenanceJob.Customer.TelephoneNumber]</a></strong></td>
         </tr>
         @if (Model.MaintenanceJob.Status != "Planned")
         {
             <tr>
                 <td width="150">Actual Start time :</td>
-                <td><b>@Model.MaintenanceJob.ActualStartTime</b></td>
+                <td><strong>@Model.MaintenanceJob.ActualStartTime</strong></td>
             </tr>
             <tr>
                 <td width="150">Actual End time :</td>
-                <td><b>@Model.MaintenanceJob.ActualEndTime</b></td>
+                <td><strong>@Model.MaintenanceJob.ActualEndTime</strong></td>
             </tr>
             <tr>
                 <td width="150">Mechanic notes :</td>
-                <td><b>@Model.MaintenanceJob.Notes</b></td>
+                <td><strong>@Model.MaintenanceJob.Notes</strong></td>
             </tr>
         }
     </tbody>
