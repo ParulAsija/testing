@@ -1,5 +1,6 @@
 ﻿namespace Pitstop.CustomerManagementAPI.DataAccess;
 
+
 public class CustomerManagementDBContext : DbContext
 {
     public CustomerManagementDBContext(DbContextOptions<CustomerManagementDBContext> options) : base(options)
